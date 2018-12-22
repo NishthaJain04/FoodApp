@@ -1,0 +1,29 @@
+<br>
+<form class="form-inline md-form form-sm mt-0" (ngSubmit)="OnSearchItem(f)" #f="ngForm">
+  <i class="fa fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" id="search" name="search" ngModel type="text" placeholder="Search for a particular dish or ingredient"
+    aria-label="Search">
+</form>
+<br>
+<p class="categories-header">SELECT CATEGORIES</p>
+<div class="row">
+  <div *ngFor="let card of categoryList[0]">
+    <div class="col-sm favourites">
+      <!-- <div class="card" style="width: 15rem;">
+          <img class="card-img" src="{{ card.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.name }}</h5>
+          </div>
+        </div> -->
+      <div class="container" (click)="OnCategoryClick($event)">
+        <img class="images" src="{{ card.image }}" alt="Card image cap">
+        <p class="title" id="title">{{ card.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="filteredList.length"> -->
+<app-categories-card [filter]="filteredList" [search]="newList"></app-categories-card>
+<!-- </div> -->
+
+<!-- <app-categories-card [search]="newList"></app-categories-card> -->
